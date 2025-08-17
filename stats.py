@@ -1,6 +1,11 @@
 """ The stats functions"""
 
 
+
+def return_value(items):
+    return items["num"]
+    
+
 def get_word_count(book_text):
     word_list = book_text.split()
     #gives a list of the words
@@ -16,12 +21,12 @@ def get_character_count(book_text):
             character_count[word] = 1
     return character_count
         
-def get_sorted_char_count(character_count):
-    list_of_dict = []
+def get_sorted_dict(character_count):
+    list_of_dicts = []
+    for word, value in character_count.items():
+        if word.isalpha():
+            list_of_dicts.append({"char" : word , "num" : value})
+    list_of_dicts.sort(reverse=True, key = return_value)
+    return list_of_dicts
+    
 
-    for key, value in character_count.items() and character_count.values().isalpha():
-        list_of_dict.append({key: value})
-
-    for character in list_of_dict:
-        sorted_character_count = list_of_dict.sort(reverse=True, key = lambda a: list(a.items())[0][1])
-    return sorted_character_count
