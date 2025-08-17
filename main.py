@@ -1,3 +1,12 @@
+from stats import get_word_count
+from stats import get_character_count
+from stats import get_sorted_dict
+import sys
+
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>") 
+    sys.exit(1)   
+
 
 def get_book_text(book):
     #function to return a book as a string
@@ -7,13 +16,10 @@ def get_book_text(book):
 
 def main():
     #main function
-    book = "books/frankenstein.txt"
+    book = sys.argv[1]
 
 
-    from stats import get_word_count
-    from stats import get_character_count
-    from stats import get_sorted_dict
-    
+   
 
     book_text = get_book_text(book)
     word_count = get_word_count(book_text)
